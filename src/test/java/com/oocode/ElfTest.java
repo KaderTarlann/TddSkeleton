@@ -22,5 +22,18 @@ public class ElfTest {
         assertThat(elfCalories.getMostCalories(input), equalTo(1000));
     }
 
+    @Test()
+    public void getMostCaloriesTest2() {
+        var input = "3000";
+        assertThat(elfCalories.getMostCalories(input), equalTo(3000));
+    }
+
+    @Test()
+    public void getMostCaloriesTest3() {
+        var input = "1000\n" +
+                "2000\n" +
+                "3000\n";
+        assertThat(elfCalories.getMostCalories(input), equalTo(6000));
+    }
 
 }
