@@ -1,11 +1,14 @@
 package com.oocode;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class ElfCalories {
 
 
-    public int getMostCalories(String input) {
+    public static int getMostCalories(String input) {
         List<String> nums = Arrays.asList(input.split("\n\n"));
         List<Integer> totalsNum = new ArrayList<>();
 
@@ -15,11 +18,16 @@ public class ElfCalories {
         return Collections.max(totalsNum);
     }
 
-    private Integer getTotal(String nums) {
+    private static Integer getTotal(String nums) {
         List<String> numbers = Arrays.asList(nums.split("\n"));
         return numbers.stream()
                 .map(Integer::parseInt)
                 .reduce(0, Integer::sum);
+    }
+
+    public static void main(String[] args) throws IOException {
+        String input = Files.readString(Paths.get("src/test/resources/day1.txt"));
+        System.out.println(getMostCalories(input));
     }
 }
 
